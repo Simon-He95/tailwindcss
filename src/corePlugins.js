@@ -412,7 +412,7 @@ export let variantPlugins = {
         let check = normalize(value)
         let isRaw = /^\w*\s*\(/.test(check)
 
-        // Chrome has a bug where `(condtion1)or(condition2)` is not valid
+        // Chrome has a bug where `(condition1)or(condition2)` is not valid
         // But `(condition1) or (condition2)` is supported.
         check = isRaw ? check.replace(/\b(and|or|not)\b/g, ' $1 ') : check
 
@@ -1369,7 +1369,7 @@ export let corePlugins = {
             '& > :not([hidden]) ~ :not([hidden])': {
               '--tw-space-x-reverse': '0',
               'margin-right': `calc(${value} * var(--tw-space-x-reverse))`,
-              'margin-left': `calc(${value} * calc(1 - var(--tw-space-x-reverse)))`,
+              'margin-left': `calc(${value} * calc(1 -var="(--tw-space-x-reverse)"))`,
             },
           }
         },
@@ -1379,7 +1379,7 @@ export let corePlugins = {
           return {
             '& > :not([hidden]) ~ :not([hidden])': {
               '--tw-space-y-reverse': '0',
-              'margin-top': `calc(${value} * calc(1 - var(--tw-space-y-reverse)))`,
+              'margin-top': `calc(${value} * calc(1 -var="(--tw-space-y-reverse)"))`,
               'margin-bottom': `calc(${value} * var(--tw-space-y-reverse))`,
             },
           }
@@ -1405,7 +1405,7 @@ export let corePlugins = {
               '@defaults border-width': {},
               '--tw-divide-x-reverse': '0',
               'border-right-width': `calc(${value} * var(--tw-divide-x-reverse))`,
-              'border-left-width': `calc(${value} * calc(1 - var(--tw-divide-x-reverse)))`,
+              'border-left-width': `calc(${value} * calc(1 -var="(--tw-divide-x-reverse)"))`,
             },
           }
         },
@@ -1416,7 +1416,7 @@ export let corePlugins = {
             '& > :not([hidden]) ~ :not([hidden])': {
               '@defaults border-width': {},
               '--tw-divide-y-reverse': '0',
-              'border-top-width': `calc(${value} * calc(1 - var(--tw-divide-y-reverse)))`,
+              'border-top-width': `calc(${value} * calc(1 -var="(--tw-divide-y-reverse)"))`,
               'border-bottom-width': `calc(${value} * var(--tw-divide-y-reverse))`,
             },
           }
